@@ -1,0 +1,9 @@
+typeorm init --name ev_api --database postgres --express
+yarn add @types/express -D
+yarn add nodemon -D
+-- cria o arquivo nodemon.ts
+-- cria Tasks entity
+-- importa createConnection no index
+
+-- Cria controller com imports
+-- no routes, cria a rota para o método n ocontroller 
