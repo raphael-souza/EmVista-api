@@ -8,10 +8,10 @@ routes.get('/', (request: Request, response: Response) => {
 });
 
 routes.get('/tasks', getTasks);
-routes.get('/tasks/:id', getTask)
-routes.post('/tasks', savetask);
-routes.put('/tasks/:id', updateTask);
-routes.patch('/tasks/:id', finishedTask);
+routes.get('/task/:id', getTask)
+routes.post('/task', savetask);
+routes.put('/task/:id', updateTask);
+routes.patch('/task/:id', finishedTask);
 routes.delete('/task/:id', removedTask);
 
 
