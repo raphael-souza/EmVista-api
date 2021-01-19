@@ -12,6 +12,9 @@ export class FinancialAssets {
   code: string;
 
   @Column()
+  broker: string;
+
+  @Column()
   purchaseDate: Date;
 
   @Column()
