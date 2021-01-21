@@ -1,45 +1,51 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BeforeInsert, BeforeUpdate } from "typeorm";
 import { Length, IsNotEmpty } from "class-validator";
 import * as bcrypt from "bcryptjs";
 
 @Entity()
 export class User {
 
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
-    @Column()
-    @Length(4, 20)
-    firstName: string;
+    // @Column()
+    // @Length(4, 20)
+    // firstName: string;
 
-    @Column()
-    lastName: string;
+    // @Column()
+    // lastName: string;
 
-    @Column()
-    age: number;
+    // @Column()
+    // age: number;
 
     @Column()
     @Length(4, 100)
     password: string;
 
     @Column()
-    @IsNotEmpty()
-    role: string;
+    email: string;
 
-    @Column()
-    @CreateDateColumn()
-    createdAt: Date;
+    // @Column()
+    // @IsNotEmpty()
+    // role: string;
 
-    @Column()
-    @UpdateDateColumn()
-    updatedAt: Date;
+    // @Column()
+    // @CreateDateColumn()
+    // createdAt: Date;
 
+    // @Column()
+    // @UpdateDateColumn()
+    // updatedAt: Date;
+
+    @BeforeInsert()
+    @BeforeUpdate()
     hashPassword() {
         this.password = bcrypt.hashSync(this.password, 8);
     }
 
-    checkIfUnencryptedPasswordIsValid(unencryptedPassword: string) {
-        return bcrypt.compareSync(unencryptedPassword, this.password);
-    }
+    // checkIfUnencryptedPasswordIsValid(unencryptedPassword: string) {
+    //     return bcrypt.compareSync(unencryptedPassword, this.password);
+    // }
 
 }
+export default User 

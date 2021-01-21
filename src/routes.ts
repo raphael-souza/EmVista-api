@@ -1,7 +1,8 @@
 import { Router, Request, Response} from 'express';
 import { getFinAsset, getFinAssets, saveFinAsset } from './controller/FinancialAssetController';
 import { finishedTask, getTask, getTasks, removedTask, savetask, updateTask } from './controller/TaskController';
-
+import UserController from './controller/UserController';
+import AuthController from './controller/AuthController'
 const routes = Router()
 
 routes.get('/', (request: Request, response: Response) => {
@@ -18,6 +19,11 @@ routes.delete('/task/:id', removedTask);
 routes.get('/financial-assets', getFinAssets);
 routes.get('/financial-asset/:id', getFinAsset);
 routes.post('/financial-asset', saveFinAsset);
+
+// ------- //
+
+routes.post('/users', UserController.store);
+routes.post('/auth', AuthController.authenticate);
 
 
 export default routes;
