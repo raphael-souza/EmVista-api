@@ -29,7 +29,7 @@
       "typeorm": "0.2.26"
    },
    "scripts": {
-      "dev": "nodemon src/index.ts",
+      "dev": "npx nodemon --exec ts-node --files src/index.ts",
       "start": "ts-node src/index.ts",
       "typeorm": "npx ts-node ./node_modules/typeorm/cli.js",
       "migration": "ts-node ./node_modules/.bin/typeorm migrations:run"

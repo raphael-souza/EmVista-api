@@ -1,7 +1,5 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
-// import bcrypt from 'bcryptjs';
-// import jwt from 'jsonwebtoken';
 import * as jwt from "jsonwebtoken";
 import * as bcrypt from "bcryptjs";
 
@@ -26,7 +24,8 @@ class AuthController {
     }
 
     const token = jwt.sign({ id: user.id}, 'secret', { expiresIn: '1d'});
-
+    delete user.password;
+    
     return res.json({
       user,
       token,
