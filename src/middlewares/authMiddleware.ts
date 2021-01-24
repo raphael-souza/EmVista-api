@@ -6,7 +6,7 @@ interface TokenPayload {
   iat: number;
   exp: number;
 }
-export default function authMiddeware(
+export default function authMiddleware(
   req:Request, res:Response, next:NextFunction
 ) {
   const { authorization } = req.headers;
@@ -16,15 +16,16 @@ export default function authMiddeware(
   }
 
   const token = authorization.replace('Bearer', '').trim();
-
+ 
   try {
+    console.log('verificando Token')
     const data = jwt.verify(token, 'secret');
-    console.log(data);
-
     const { id } = data as TokenPayload;
 
     req.userId = id;
+    return next();
   } catch {
+    console.error('token não voi validado corretamente!')
     return res.sendStatus(401);
   }
 

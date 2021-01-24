@@ -5,8 +5,10 @@ import User from '../entity/User';
 
 class UserController {
     index(req: Request, res: Response) {
-        return res.send({ userID: req.userId });
+        console.log('****index****');
+        return res.send({ userID: req.userId, requestMessage: "index users - tá top !" });
     }
+
     async store(req:Request, res:Response) {
         const repository = getRepository(User);
         const {email, password} = req.body;
