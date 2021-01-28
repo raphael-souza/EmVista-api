@@ -1,3 +1,4 @@
+import * as dotenv from "dotenv";
 import "reflect-metadata";
 import * as express from "express";
 import * as bodyParser from "body-parser";
@@ -6,7 +7,8 @@ import * as cors from "cors";
 import routes from "./routes";
 import { createConnection } from 'typeorm';
 import './database/conect'
-//const cors = require('cors');
+
+dotenv.config();
 const app = express();
 
 app.use(express.json());
