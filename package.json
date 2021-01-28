@@ -31,7 +31,9 @@
    },
    "scripts": {
       "dev": "npx nodemon --exec ts-node --files src/index.ts",
-      "start": "ts-node src/index.ts",
+      "build": "tsc",
+      "start-dev": "ts-node src/index.ts",
+      "start": "ts-node dist/index.js",
       "typeorm": "npx ts-node ./node_modules/typeorm/cli.js",
       "migration": "ts-node ./node_modules/.bin/typeorm migrations:run"
    }
