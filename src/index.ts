@@ -1,4 +1,5 @@
 import * as dotenv from "dotenv";
+
 import "reflect-metadata";
 import * as express from "express";
 import * as bodyParser from "body-parser";
@@ -25,9 +26,10 @@ createConnection()
     app.use(bodyParser.json());
     app.use(helmet());
     app.use(routes);
-
-    app.listen(process.env.PORT ||  3333, () => {
-      console.log("emVista started ! in port 3333");
+    let port = process.env.PORT ||  3333;
+     
+    app.listen(port, () => {
+      console.log("emVista started! in port " + port);
     });
   })
   .catch(error => console.log(error));
