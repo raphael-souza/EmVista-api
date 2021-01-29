@@ -8,7 +8,15 @@ module.exports = {
    // "database": "em_vista",
       "synchronize": true,
       // "logging": false,
-      "ssl": true,
+      "dialectOptions": {
+         "ssl": {
+           "require": true,
+           // Ref.: https://github.com/brianc/node-postgres/issues/2009
+           "rejectUnauthorized": false,
+         },
+         "keepAlive": true,        
+       },      
+       "ssl": true,
    "entities": [
       "dist/entity/**/*.js"
    ],
