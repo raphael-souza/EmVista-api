@@ -7,7 +7,7 @@ module.exports = {
    // "password": "root",
    // "database": "em_vista",
       "synchronize": true,
-      "logging": false,
+      // "logging": false,
       "ssl": true,
    "entities": [
       "dist/entity/**/*.js"
