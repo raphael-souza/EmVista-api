@@ -6,8 +6,9 @@ module.exports = {
    // "username": "raphael",
    // "password": "root",
    // "database": "em_vista",
-   // "synchronize": true,
-   // "logging": false,
+      "synchronize": true,
+      "logging": false,
+      "ssl": true,
    "entities": [
       "dist/entity/**/*.js"
    ],
