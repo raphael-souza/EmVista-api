@@ -7,16 +7,12 @@ module.exports = {
    // "password": "root",
    // "database": "em_vista",
       "synchronize": true,
-      // "logging": false,
-      "dialectOptions": {
+      "ssl": true,
+      "extra": {
          "ssl": {
-           "require": true,
-           // Ref.: https://github.com/brianc/node-postgres/issues/2009
-           "rejectUnauthorized": false,
-         },
-         "keepAlive": true,        
-       },      
-       "ssl": true,
+             "rejectUnauthorized": false
+         }
+     },
    "entities": [
       "dist/entity/**/*.js"
    ],
