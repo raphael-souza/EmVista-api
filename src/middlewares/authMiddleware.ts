@@ -25,7 +25,7 @@ export default function authMiddleware(
     req.userId = id;
     return next();
   } catch {
-    console.error('token não voi validado corretamente!')
+    console.error('token não foi validado corretamente!')
     return res.sendStatus(401);
   }
 

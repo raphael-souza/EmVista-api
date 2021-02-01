@@ -14,10 +14,10 @@ module.exports = {
          }
      },
    "entities": [
-      "dist/entity/**/*.js"
+      process.env.ENTITIES_PATH
    ],
    "migrations": [
-      "dist/database/migration/*.js"
+      process.env.MIGRATIONS_PATH
    ],
    "subscribers": [
       "src/subscriber/**/*.ts"
