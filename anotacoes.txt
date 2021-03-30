@@ -1,0 +1,23 @@
+** compilar typescript ** 
+npm install ts-node --save-dev
+npm install typescript -g 
+sudo npm install typescript --save-dev
+
+** instalando o express e cors (morgan é para logs)
+npm i -s cors express morgan 
+
+** instalar os tipos para express e nodemon que é um webserver para hotdeploy
+
+
+--------------------
+
+typeorm init --name ev_api --database postgres --express
+yarn add @types/express -D
+yarn add nodemon -D
+-- cria o arquivo nodemon.ts
+-- cria Tasks entity
+-- importa createConnection no index
+
+-- Cria controller com imports
+-- no routes, cria a rota para o método n ocontroller 
+-- docker-compose up -d --> inicia o cocker-compose

@@ -10,3 +10,13 @@ services:
       - ./pgdata:/var/lib/postgresql/data
     ports: 
       - "5432:5432"
+  app:
+    container_name: em-vista-api 
+    restart: always
+    # caminho para o dockerfile da aplicação ( está na raiz )
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on: 
+      - db
+    
