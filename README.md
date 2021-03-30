@@ -12,4 +12,4 @@ Steps to run this project:
 3. Run `npm start` command
 
 Executando o Projeto utilizando Docker e Docker Compose
-1. Na raiz do projeto executar `ocker-compose run
+1. Na raiz do projeto executar `docker-compose run`
