@@ -30,6 +30,5 @@ routerUSer.get('/financial-assets/:userId', async (req, res) => {
     res.json({"ativos": finAssets, "message": "ativos listados com sucesso"});
 });
 
-// autenticacao
+// autenticacao retornando token
 routerUSer.post('/auth', AuthController.authenticate);
-routerUSer.get('/index', authMiddleware, userController.index);
