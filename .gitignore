@@ -6,3 +6,7 @@ tmp/
 temp/
 ormconfig.json
 .env
+package-lock.json
+teste_insominia/Insomnia_2021-03-30
+src/config/config.ts
+
