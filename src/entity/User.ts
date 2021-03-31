@@ -6,9 +6,10 @@ import { FinancialAsset } from "./FinancialAsset";
 
 @Entity()
 export class User {
-    constructor(name: string, email: string) {
+    constructor(name: string, email: string, password: string) {
         this.name = name;
         this.email = email;
+        this.password = password;
     }
     @PrimaryGeneratedColumn('uuid')
     id: number;
@@ -28,8 +29,8 @@ export class User {
 
     @BeforeInsert()
     @BeforeUpdate()
-    hashPassword() {
-        this.password = bcrypt.hashSync(this.password, 8);
+    async hashPassword() {
+        this.password = await bcrypt.hashSync(this.password, 8);
     }
 }
 export default User
