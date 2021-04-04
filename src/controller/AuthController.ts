@@ -10,7 +10,7 @@ class AuthController {
     const repository = getRepository(User);
     const {email, password} = req.body;
     const user = await repository.findOne({ where: { email }});
-
+   
     if (!user) {
       return res.sendStatus(401);
     }
@@ -23,7 +23,6 @@ class AuthController {
 
     const token = jwt.sign({ id: user.id}, 'secret', { expiresIn: '1d'});
     delete user.password;
-    
     return res.json({
       user,
       token,

@@ -3,10 +3,14 @@ import { getManager } from 'typeorm'
 import { User } from '../entity/User'
 
 export class UserController {
-  async save(user: User) {
 
-    console.log(user)
+  async index(res: Response) {
+    res.json({status: 200})
+  }
+
+  async save(user: User) {
     const userSaved = await getManager().save(user);
+    console.log(userSaved);
     
     return userSaved;
   }
