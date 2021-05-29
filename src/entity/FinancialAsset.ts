@@ -42,7 +42,6 @@ export class FinancialAsset {
   @CreateDateColumn()
   createdAt: Date;
 
-  @ManyToOne(() => User)
-  user: User;
+  @ManyToOne(type => User, user => user.financialAssets)  user: User;
 
 }

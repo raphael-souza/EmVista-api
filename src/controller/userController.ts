@@ -5,13 +5,13 @@ import { User } from '../entity/User'
 export class UserController {
 
   async index(res: Response) {
-    res.json({status: 200})
+    res.json({ status: 200 })
   }
 
   async save(user: User) {
     const userSaved = await getManager().save(user);
     console.log(userSaved);
-    
+
     return userSaved;
   }
 
@@ -34,6 +34,14 @@ export class UserController {
       }
     );
 
-    return user.financialAssets;
+    if (!!user) {
+      console.log(user.id);
+      return user.financialAssets;
+
+    } else {
+      console.log('não localizou User pelo Id');
+      return {}
+    }
+
   }
 }

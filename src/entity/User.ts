@@ -24,8 +24,7 @@ export class User {
     @Length(4, 100)
     password: string;
 
-    @OneToMany(() => FinancialAsset, financialAsset => financialAsset.user )
-    financialAssets: FinancialAsset[];
+    @OneToMany(type => FinancialAsset, financialAsset => financialAsset.user ) financialAssets: FinancialAsset[];
 
     @BeforeInsert()
     @BeforeUpdate()
