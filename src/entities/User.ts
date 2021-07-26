@@ -3,13 +3,14 @@ import { Length, IsNotEmpty } from "class-validator";
 import * as bcrypt from "bcryptjs";
 
 import { FinancialAsset } from "./FinancialAsset";
+import { ICreateUserRequestDTO } from "../useCases/createUser/ICreateUserRequestDTO";
 
 @Entity()
 export class User {
-    constructor(name: string, email: string, password: string) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
+    constructor(private newUser: ICreateUserRequestDTO) {
+        this.name = newUser.name;
+        this.email = newUser.email;
+        this.password = newUser.password;
     }
     @PrimaryGeneratedColumn('uuid')
     id: number;
