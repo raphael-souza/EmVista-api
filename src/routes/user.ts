@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import AuthController from '../controller/AuthController';
-import { UserController } from '../controller/userController';
+import AuthController from '../useCases/authUser/AuthController';
+import { UserController } from '../useCases/createUser/userController';
 import { User } from '../entity/User';
 import authMiddleware from '../middleware/authMiddleware';
 

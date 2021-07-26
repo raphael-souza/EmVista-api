@@ -3,7 +3,7 @@
 Base de dados:
  - Postgres
 
-Aplicaço utiliza Node Js, Typescript, TypeORM, express.
+Api utiliza Node Js, Typescript, TypeORM, express.
  
 Steps to run this project:
 

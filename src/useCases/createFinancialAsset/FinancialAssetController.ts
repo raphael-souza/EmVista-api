@@ -1,5 +1,5 @@
 import { getManager } from "typeorm";
-import { FinancialAsset } from "../entity/FinancialAsset";
+import { FinancialAsset } from "../../entities/FinancialAsset"
 
 export class FinancialAssetController {
 

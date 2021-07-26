@@ -10,8 +10,9 @@ class AuthController {
     const repository = getRepository(User);
     const {email, password} = req.body;
     const user = await repository.findOne({ where: { email }});
-   console.log("---- auth " + user );
+   
     if (!user) {
+      console.log("--- user não pode ser autenticado!");
       return res.sendStatus(401);
     }
 

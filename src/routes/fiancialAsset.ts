@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { FinancialAssetController } from '../controller/FinancialAssetController';
-import { UserController } from '../controller/userController';
+import { FinancialAssetController } from '../useCases/createUser/FinancialAssetController';
+import { UserController } from '../useCases/createUser/userController';
 import { FinancialAsset } from '../entity/FinancialAsset';
 
 export const routerFinancialAsset = Router();
