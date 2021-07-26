@@ -2,47 +2,38 @@ import User from "../../entities/User";
 import { IUserRepository } from "../IUserRepository";
 import { Request, Response } from 'express';
 import { getManager } from 'typeorm'
+import { FinancialAsset } from "../../entities/FinancialAsset";
 
 
 export class PostgresUserRepository implements IUserRepository {
   
+  async index(res: Response) {
+    res.json({ status: 200 })
+  }
+
   async findByEmail(email: string): Promise<User> {
-    throw new Error("Method not implemented.");
+    const user = await getManager().findOne(User, email);
+
+    return user;
   }
   async save(user: User) {
      const userSaved = await getManager().save(user);
     return userSaved;
   }
 
-}
-
-// ******************************************************* // 
-export class UserController {
-
-  async index(res: Response) {
-    res.json({ status: 200 })
-  }
-
-  async save(user: User) {
-    const userSaved = await getManager().save(user);
-    console.log(userSaved);
-
-    return userSaved;
-  }
-
-  async returnAll() {
+  async returnAll():Promise<User[]>{
     const users = await getManager().find(User);
 
     return users
   }
 
-  async getById(id: number) {
+  async getById(id: number):Promise<User> {
     const user = await getManager().findOne(User, id);
 
     return user;
   }
 
-  async getFinAssetsByUserId(id: string) {
+  async getFinAssetsByUserId(id: string):Promise<FinancialAsset[]> {
     const user = await getManager().findOne(User, id,
       {
         relations: ['financialAssets']
@@ -55,7 +46,7 @@ export class UserController {
 
     } else {
       console.log('não localizou User pelo Id');
-      return {}
+      throw new Error("not found");
     }
 
   }
