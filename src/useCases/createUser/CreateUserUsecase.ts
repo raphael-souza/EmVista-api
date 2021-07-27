@@ -1,5 +1,5 @@
 import User from "../../entities/User";
-import { ImailProvider } from "../../providers/ IMailProvider";
+import { ImailProvider } from "../../providers/IMailProvider";
 import { IUserRepository } from "../../repositories/IUserRepository";
 import { ICreateUserRequestDTO } from "./ICreateUserRequestDTO";
 
@@ -11,7 +11,7 @@ export class CreateUserUseCase {
       // constructor
   }
 
-  async execute(data: ICreateUserRequestDTO) {
+  async execute(data: ICreateUserRequestDTO):Promise<User> {
     const userAlreadyExistis = await this.userRepository.findByEmail(data.email);
 
     if (userAlreadyExistis) {
@@ -19,21 +19,26 @@ export class CreateUserUseCase {
     }
 
     const user = new User(data);
-    await this.userRepository.save(user);
+    const userSaved = await this.userRepository.save(user);
 
-    this.mailProvider.sendMail({
-      to: {
-        name: data.name,
-        email: data.email
-      },
-      from: {
-        name: "equipe EmVista",
-        email: "contato@emvistaapp.com"
-      },
-      subject: "Seja Bem vindo a plataforma!",
-      body: "<h2> Olá! </h2><p> você já pode fazer login na plataforma.</p>"
+    if (userSaved) {
+      this.mailProvider.sendMail({
+        to: {
+          name: data.name,
+          email: data.email
+        },
+        from: {
+          name: "equipe EmVista",
+          email: "contato@emvistaapp.com"
+        },
+        subject: "Seja Bem vindo a plataforma!",
+        body: "<h2> Olá! </h2><p> você já pode fazer login na plataforma.</p>"
+  
+      });
 
-    })
+      return userSaved;
+    }
+    
   }
   
 }

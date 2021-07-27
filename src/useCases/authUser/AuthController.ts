@@ -3,7 +3,7 @@ import { getRepository } from 'typeorm';
 import * as jwt from "jsonwebtoken";
 import * as bcrypt from "bcryptjs";
 
-import User from '../entity/User';
+import User from '../../entities/User';
 
 class AuthController {
   async authenticate(req: Request, res: Response) {

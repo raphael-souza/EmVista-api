@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { FinancialAssetController } from '../useCases/createUser/FinancialAssetController';
+import { FinancialAssetController } from '../useCases/createFinancialAsset/FinancialAssetController';
 import { UserController } from '../useCases/createUser/userController';
-import { FinancialAsset } from '../entity/FinancialAsset';
+import { FinancialAsset } from '../entities/FinancialAsset';
 
 export const routerFinancialAsset = Router();
-const userController = new UserController();
+const userController = new UserController(); // ----------- refactor
 const finAssetController = new FinancialAssetController();
 
 routerFinancialAsset.post('/', async (req,res) => {
