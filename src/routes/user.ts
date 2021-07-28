@@ -4,7 +4,6 @@ import authMiddleware from '../middleware/authMiddleware';
 
 import { createUserController } from '../useCases/createUser';
 import { PostgresUserRepository } from '../repositories/implementations/PostgresUserRepository'
-import * as jwt from "jsonwebtoken";
 
 export const routerUSer = Router();
 const userRepository = new PostgresUserRepository();

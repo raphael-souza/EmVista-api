@@ -12,6 +12,7 @@ export class CreateUserController {
   async handle(request: Request, response: Response): Promise<Response> {
     const {name, email, password} = request.body;
 
+    console.log(request.body)
     try {
       console.info("criando user e notificando por email");
       const userSaved = await this.createUserUseCase.execute({
@@ -20,7 +21,7 @@ export class CreateUserController {
         password
       });
 
-      // return response.status(201).send();
+      //  return response.status(201).send();
 
       const token = jwt.sign({ id: userSaved.id}, 'secret', { expiresIn: '1d'});
       response.json({userSaved, token});

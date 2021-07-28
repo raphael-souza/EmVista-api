@@ -2,6 +2,7 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import * as logger from 'morgan'
+import 'reflect-metadata';
 
 import { connectServerInDB } from './config/db';
 import { routerUSer } from './routes/user';

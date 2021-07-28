@@ -7,7 +7,7 @@ import { ICreateUserRequestDTO } from "../useCases/createUser/ICreateUserRequest
 
 @Entity()
 export class User {
-    constructor(private newUser: ICreateUserRequestDTO) {
+    constructor(newUser: ICreateUserRequestDTO) {
         this.name = newUser.name;
         this.email = newUser.email;
         this.password = newUser.password;
