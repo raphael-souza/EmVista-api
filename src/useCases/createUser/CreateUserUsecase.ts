@@ -18,7 +18,12 @@ export class CreateUserUseCase {
       throw new Error("User already existis");
     }
 
-    const user = new User(data);
+    const user = new User();
+
+    user.name = data.name;
+    user.password = data.password;
+    user.email = data.email;
+    
     const userSaved = await this.userRepository.save(user);
 
     if (userSaved) {

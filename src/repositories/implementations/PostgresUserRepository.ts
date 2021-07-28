@@ -12,12 +12,12 @@ export class PostgresUserRepository implements IUserRepository {
   }
 
   async findByEmail(email: string): Promise<User> {
-    const user = await getManager().findOne(User, email);
+    const user = await getManager().findOne(User, {email: email});
 
     return user;
   }
   async save(user: User) {
-     const userSaved = await getManager().save(user);
+    const userSaved = await getManager().save(user);
     return userSaved;
   }
 

@@ -7,11 +7,14 @@ import { ICreateUserRequestDTO } from "../useCases/createUser/ICreateUserRequest
 
 @Entity()
 export class User {
-    constructor(newUser: ICreateUserRequestDTO) {
-        this.name = newUser.name;
-        this.email = newUser.email;
-        this.password = newUser.password;
-    }
+    // constructor(newUser: ICreateUserRequestDTO) {
+    //     // this.name = newUser.name;
+    //     this.email = newUser.email;
+    //     this.password = newUser.password;
+    // }
+
+    constructor () {}
+    
     @PrimaryGeneratedColumn('uuid')
     id: number;
 
